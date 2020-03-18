@@ -1,19 +1,17 @@
-const url = "http://localhost:8080/api";
-var apiClient = (function () {
-    return {
-        getAirportsByName: function (name,callback) {
-            var urlApp = url + "/airports/"+name;
-            $.ajax({
-                url: urlApp,
-                type: "GET",
-                success:function(res){
-                    callback(res);
-                },
-                error:function (err) {
-                    alert(err + " fetch error");
-                }
-            });
-        }
 
-    };
+var apiClient = (function () {
+    var getAirportsByName = (function (name,callback) {
+
+        axios({
+            method: 'GET',
+            url: '/api/airports/'+name,
+
+        })
+            .then(response => callback(response.data))
+            .catch(error => console.log(error));
+    });
+
+    return{
+        getAirportsByName:getAirportsByName,
+    }
 })();

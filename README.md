@@ -1,5 +1,20 @@
 # Escuela Colombiana de Ingeniería Julio Garavito - Arquitecturas de Software ARSW - Parcial Segundo Tercio
 
+## Compile and run instructions
+
+#### Requisitos:
+
+- Maven
+- Java
+
+#### Ejecucción
+
+En el directorio `CARLOS-MURILLO-ARSW-T2-PREPARCIAL`:
+
+- Para compilar el proyecto: `mvn package`
+- Para ejecutar las pruebas: `mvn test`
+- Para ejecutar el proyecto: `mvn spring-boot:run`
+
 ## Preparación para el Parcial
 
 Con el objetivo de preparar el examen final del segundo tercio, por favor siga las siguientes instrucciones.
