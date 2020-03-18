@@ -10,7 +10,7 @@ public class Airport {
 
     private String name;
 
-    //private String location;
+    private Location location;
 
     private String cityId;
 
@@ -48,14 +48,14 @@ public class Airport {
     public void setName(String name) {
         this.name = name;
     }
-/*
-    public String getLocation() {
+
+    public Location getLocation() {
         return location;
     }
 
-    public void setLocation(String location) {
+    public void setLocation(Location location) {
         this.location = location;
-    }*/
+    }
 
     public String getCityId() {
         return cityId;

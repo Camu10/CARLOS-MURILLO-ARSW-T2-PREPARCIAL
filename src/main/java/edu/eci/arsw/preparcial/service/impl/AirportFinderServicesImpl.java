@@ -19,23 +19,18 @@ import java.util.List;
 
 @Service
 public class AirportFinderServicesImpl implements AirportFinderServices {
-    private String headerHost;
     private String headerHostValue;
-    private String headerKey;
     private String headerKeyValue;
     private String url;
     private Gson gson;
     @Autowired
     private AirportsFinderCache airportsFinderCache;
     public AirportFinderServicesImpl(){
-        url = "https://cometari-airportsfinder-v1.p.rapidapi.com/api/";
-        headerHost = "x-rapidapi-host";
+        url = "https://cometari-airportsfinder-v1.p.rapidapi.com/api/airports/by-text?text=";
         headerHostValue = "cometari-airportsfinder-v1.p.rapidapi.com";
-        headerKey = "x-rapidapi-key";
         headerKeyValue = "ecd92ce78fmsha41e1754a0b09e1p1b709bjsna4f3e9e91296";
         gson = new GsonBuilder().create();
     }
-
 
     @Override
     public List<Airport> getAirportsByName(String name){
@@ -47,14 +42,13 @@ public class AirportFinderServicesImpl implements AirportFinderServices {
         }
 
         StringBuilder apiUrl = new StringBuilder();
-        apiUrl.append(url);
-        apiUrl.append("airports/by-text?text="+encodedUrlName);
+        apiUrl.append(url+encodedUrlName);
 
         HttpResponse<String> apiResponse = null;
         try{
             apiResponse = Unirest.get(apiUrl.toString())
-                    .header(headerHost,headerHostValue)
-                    .header(headerKey,headerKeyValue)
+                    .header("x-rapidapi-host",headerHostValue)
+                    .header("x-rapidapi-key",headerKeyValue)
                     .asString();
         }catch (UnirestException e){
             e.printStackTrace();
