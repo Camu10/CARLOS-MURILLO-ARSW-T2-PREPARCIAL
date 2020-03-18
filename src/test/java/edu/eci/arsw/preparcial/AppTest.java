@@ -1,4 +1,4 @@
-package edu.eci.arsw.parcial;
+package edu.eci.arsw.preparcial;
 
 import junit.framework.Test;
 import junit.framework.TestCase;
